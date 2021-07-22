@@ -112,10 +112,9 @@ def custom_remove(input_list, value):
     for i, item in enumerate(input_list):
         if input_list[i] == value:
             index = i
+            break
 
-    input_list[index] = []
-    print("INPUT LIST IS:", input_list)
-
+    input_list[index:index+1] = []
 
 
 def custom_pop(input_list):
@@ -134,7 +133,12 @@ def custom_pop(input_list):
 
     """
 
-    return None
+    popped_item = None
+
+    popped_item = input_list[-1]
+    input_list[-1:] = []
+
+    return popped_item
 
 
 def custom_index(input_list, value):
@@ -150,7 +154,9 @@ def custom_index(input_list, value):
 
     """
 
-    return 0
+    for i, item in enumerate(input_list):
+        if input_list[i] == value:
+            return i
 
 
 def custom_count(input_list, value):
@@ -165,8 +171,13 @@ def custom_count(input_list, value):
         2
 
     """
+    counter = 0
 
-    return 0
+    for item in input_list:
+        if item == value:
+            counter +=1
+
+    return counter
 
 
 def custom_reverse(input_list):
@@ -185,7 +196,11 @@ def custom_reverse(input_list):
 
     """
 
-    pass
+    for i in range(0, custom_len(input_list)//2):
+        current_n = input_list[i]
+        current_negative_n = input_list[-i-1]
+        input_list[i] = current_negative_n
+        input_list[-i-1] = current_n
 
 
 def custom_contains(input_list, value):
@@ -205,7 +220,11 @@ def custom_contains(input_list, value):
 
     """
 
-    return None
+    for item in input_list:
+        if item == value:
+            return True
+
+    return False
 
 
 def custom_equality(some_list, another_list):
@@ -224,7 +243,14 @@ def custom_equality(some_list, another_list):
 
     """
 
-    return None
+    if custom_len(some_list) != custom_len(another_list):
+        return False
+
+    for i, item in enumerate(some_list):
+        if some_list[i] != another_list[i]:
+            return False
+
+    return True
 
 
 # This is the part were we actually run the doctests.
