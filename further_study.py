@@ -92,8 +92,6 @@ def custom_insert(input_list, index, value):
     input_list[index:index] = [value]
 
 
-
-
 def custom_remove(input_list, value):
     """Remove the first item of the value in list.
 
@@ -109,8 +107,15 @@ def custom_remove(input_list, value):
         True
 
     """
+    index = None
 
-    pass
+    for i, item in enumerate(input_list):
+        if input_list[i] == value:
+            index = i
+
+    input_list[index] = []
+    print("INPUT LIST IS:", input_list)
+
 
 
 def custom_pop(input_list):

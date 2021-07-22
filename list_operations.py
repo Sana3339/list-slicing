@@ -117,7 +117,7 @@ def inner_four_end(input_list):
 
     """
 
-    return input_list[-6: -2: 1]
+    return input_list[-6: -2]
 
 
 def replace_head(input_list):
@@ -147,8 +147,8 @@ def replace_third_and_last(input_list):
 
     """
 
-    input_list[2] = 37
-    input_list[-1] = 37
+    input_list[2], input_list[-1] = 37, 37
+
 
 
 def replace_middle(input_list):
@@ -182,8 +182,8 @@ def delete_third_and_seventh(input_list):
 
     """
 
-    input_list.pop(2)
-    input_list.pop(5)
+    input_list[2:3] = []
+    input_list[5:6] = []
 
 
 def delete_middle(input_list):
