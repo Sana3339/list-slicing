@@ -89,7 +89,9 @@ def custom_insert(input_list, index, value):
 
     """
 
-    list_length = custom_len(input_list)
+    input_list[index:index] = [value]
+
+
 
 
 def custom_remove(input_list, value):
